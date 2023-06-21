@@ -22,19 +22,29 @@ export function useFetch<T = any>(url: string): [boolean, T[], string] {
 
     useEffect(() => {
         (async () => {
+            setState(s => ({ ...s, items: [], loading: true  }));
             const response = await fetch(url);
             const data: T[] = await response.json();
+            await wait(3);
             if (response.ok) {
-                setState({ ...state, items: data, loading: false  });
+                setState(s => ({ ...s, items: data, loading: false  }));
             } else {
-                setState({ ...state, error: 'todo' });
+                setState(s => ({ ...s, error: 'todo' }));
             }
         })();
-    }, []);
+    }, [url]);
 
     return [
         state.loading,
         state.items,
         state.error
     ];
+}
+
+function wait(second: number) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(true);
+        }, 1000 * second);
+    });
 }

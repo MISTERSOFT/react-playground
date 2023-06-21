@@ -14,16 +14,22 @@ export type Photo = {
 export function Gallery() {
     const [loading, items, error] = useFetch<Photo>('https://jsonplaceholder.typicode.com/photos?_limit=10');
 
-    const profiles = items.map(item => <Profile key={item.id} photo={item} />)
+    const profiles = items.map(item => <Profile key={item.id} photo={item} />);
+
+    let content;
+    if (loading) {
+        content = <Loader />
+    } else if (error) {
+        content = <div>A error occurred.</div>
+    } else {
+        content = profiles;
+    }
+
 
     return (
         <section>
             <h1>Amazing pictures</h1>
-            {
-                loading ?
-                <Loader /> :
-                profiles
-            }
+            {content}
         </section>
     );
 }
