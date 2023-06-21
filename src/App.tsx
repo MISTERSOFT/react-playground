@@ -1,15 +1,34 @@
-import { Component } from 'react';
 import './App.scss';
-import {Gallery} from './components/gallery/Gallery';
-import TodoList from './components/todolist/TodoList';
+import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { HomePage } from './pages/Home/HomePage';
+import ErrorPage from './pages/ErrorPage';
 
-export default class App extends Component {
-  render() {
-    return (
-      <>
-        <Gallery />
-        <TodoList />
-      </>
-    );
+const router = createBrowserRouter([
+  {
+    element: <RootLayout />,
+    children: [
+      { path: '/', element: <HomePage /> },
+      { path: '*', element: <ErrorPage /> }
+    ]
   }
+]);
+
+function RootLayout() {
+  return (
+    <>
+      <header>
+        <h1>My Super Cool App</h1>
+        Nav goes here
+      </header>
+      <main>
+        {/* Render the app routes via the Layout Outlet */}
+        <Outlet />
+      </main>
+      <footer>2023 c</footer>
+    </>
+  );
+}
+
+export function App() {
+  return <RouterProvider router={router} />;
 }
