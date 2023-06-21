@@ -28,7 +28,6 @@ export function Gallery() {
 
     return (
         <section>
-            <h1>Amazing pictures</h1>
             {content}
         </section>
     );
