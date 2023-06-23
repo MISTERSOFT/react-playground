@@ -28,7 +28,7 @@ function RootLayout() {
       <header>
         <NavMenu />
       </header>
-      <main className="bg-white dark:bg-gray-900 p-2">
+      <main className="max-w-screen-xl mx-auto p-4">
         <Outlet />
       </main>
       <Footer />
