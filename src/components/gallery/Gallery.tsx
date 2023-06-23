@@ -1,7 +1,7 @@
 import { Profile } from '../profile/Profile';
 import { useFetch } from '../../hooks/useFetch';
 import { Loader } from '../loader/Loader';
-import { GallerySkeleton } from '../skeleton/GallerySkeleton';
+import { GallerySkeleton } from '../ui/skeleton/GallerySkeleton';
 
 export type Photo = {
     albumId: number,
