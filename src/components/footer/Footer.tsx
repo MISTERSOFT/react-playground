@@ -22,8 +22,11 @@ export function Footer() {
                                 <li className="mb-4">
                                     <a href="https://flowbite.com/" className="hover:underline">Flowbite</a>
                                 </li>
-                                <li>
+                                <li className="mb-4">
                                     <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>
+                                </li>
+                                <li>
+                                    <a href="https://tailwindui.com/components" className="hover:underline">Tailwind UI</a>
                                 </li>
                             </ul>
                         </div>

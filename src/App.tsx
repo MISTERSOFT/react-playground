@@ -6,6 +6,9 @@ import { NavMenu } from './components/nav-menu/NavMenu';
 import { Footer } from './components/footer/Footer';
 import { TodosPage } from './pages/TodosPage/TodosPage';
 import { GalleryPage } from './pages/GalleryPage/GalleryPage';
+import { AuthContext } from './contexts/authContext';
+import { useReducer } from 'react';
+import { authReducer } from './reducers/authReducer';
 
 type Routes = (RouteObject & { name?: string })[]
 export const routes: Routes = [
@@ -22,9 +25,16 @@ const router = createBrowserRouter([
   }
 ]);
 
+const initialAuth = {
+  user: undefined
+};
+
 function RootLayout() {
+  const [loggedUser, dispatch] = useReducer(authReducer, initialAuth);
+  const authContextValue = { user: loggedUser.user, dispatch };
+
   return (
-    <>
+    <AuthContext.Provider value={authContextValue}>
       <header>
         <NavMenu />
       </header>
@@ -32,7 +42,7 @@ function RootLayout() {
         <Outlet />
       </main>
       <Footer />
-    </>
+    </AuthContext.Provider>
   );
 }
 
