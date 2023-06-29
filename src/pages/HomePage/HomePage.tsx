@@ -1,6 +1,19 @@
+import { Diaporama } from "../../components/diaporama/Diaporama";
+
 export function HomePage() {
     return (
         <section>
+            <Diaporama>
+                <Diaporama.Image src="https://picsum.photos/1248/256">
+                    <Diaporama.Image.Label>Lorem ipsum 1</Diaporama.Image.Label>
+                </Diaporama.Image>
+                <Diaporama.Image src="https://picsum.photos/1248/256">
+                    <Diaporama.Image.Label>Lorem ipsum 2</Diaporama.Image.Label>
+                </Diaporama.Image>
+                <Diaporama.Image src="https://picsum.photos/1248/256">
+                    <Diaporama.Image.Label>Lorem ipsum 3</Diaporama.Image.Label>
+                </Diaporama.Image>
+            </Diaporama>
 
             <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
                 <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Lorem ipsum dolor sit amet</h1>

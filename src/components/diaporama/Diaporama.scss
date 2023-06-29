@@ -1,0 +1,14 @@
+.diaporama {
+    height: 256px;
+}
+
+.diaporama-nav {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.diaporama-image-label {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
