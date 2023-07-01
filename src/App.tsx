@@ -9,6 +9,7 @@ import { GalleryPage } from './pages/GalleryPage/GalleryPage';
 import { AuthContext } from './contexts/authContext';
 import { useReducer } from 'react';
 import { authReducer } from './reducers/authReducer';
+import { ReduxProvider } from './redux/ReduxProvider';
 
 type Routes = (RouteObject & { name?: string })[]
 export const routes: Routes = [
@@ -34,15 +35,17 @@ function RootLayout() {
   const authContextValue = { user: loggedUser.user, dispatch };
 
   return (
-    <AuthContext.Provider value={authContextValue}>
-      <header>
-        <NavMenu />
-      </header>
-      <main className="max-w-screen-xl mx-auto p-4">
-        <Outlet />
-      </main>
-      <Footer />
-    </AuthContext.Provider>
+    <ReduxProvider>
+      <AuthContext.Provider value={authContextValue}>
+        <header>
+          <NavMenu />
+        </header>
+        <main className="max-w-screen-xl mx-auto p-4">
+          <Outlet />
+        </main>
+        <Footer />
+      </AuthContext.Provider>
+    </ReduxProvider>
   );
 }
 

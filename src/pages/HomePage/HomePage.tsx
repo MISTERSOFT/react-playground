@@ -1,4 +1,5 @@
 import { Diaporama } from "../../components/diaporama/Diaporama";
+import { Counter } from "../../features/counter/Counter";
 
 export function HomePage() {
     return (
@@ -14,6 +15,10 @@ export function HomePage() {
                     <Diaporama.Image.Label>Lorem ipsum 3</Diaporama.Image.Label>
                 </Diaporama.Image>
             </Diaporama>
+
+            <div>
+                <Counter />
+            </div>
 
             <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
                 <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Lorem ipsum dolor sit amet</h1>
