@@ -10,12 +10,14 @@ import { AuthContext } from './contexts/authContext';
 import { useReducer } from 'react';
 import { authReducer } from './reducers/authReducer';
 import { ReduxProvider } from './redux/ReduxProvider';
+import { StorePage } from './pages/StorePage/StorePage';
 
 type Routes = (RouteObject & { name?: string })[]
 export const routes: Routes = [
   { path: '/', name: 'Home', element: <HomePage /> },
   { path: '/todos', name: 'Todos', element: <TodosPage /> },
   { path: '/gallery', name: 'Art Gallery', element: <GalleryPage /> },
+  { path: '/store', name: 'ECommerce Store', element: <StorePage /> },
   { path: '*', element: <ErrorPage /> }
 ];
 
