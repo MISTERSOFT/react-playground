@@ -12,7 +12,7 @@ export function Footer() {
                             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">React Playground</span>
                         </Link>
                     </div>
-                    <div className="grid grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-3">
+                    <div className="grid grid-cols-4 gap-8 sm:gap-6 sm:grid-cols-4">
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                             <ul className="text-gray-600 dark:text-gray-400 font-medium">
@@ -38,6 +38,23 @@ export function Footer() {
                                 </li>
                                 <li className="mb-4">
                                     <a href="https://react-redux.js.org/" className="hover:underline">React Redux</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="https://redux-observable.js.org/" className="hover:underline">Redux-Observable</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="https://rxjs.dev/" className="hover:underline">RxJS</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">&nbsp;</h2>
+                            <ul className="text-gray-600 dark:text-gray-400 font-medium">
+                                <li className="mb-4">
+                                    <a href="https://reactrouter.com/en/main" className="hover:underline">React Router Dom</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="https://fakestoreapi.com/docs" className="hover:underline">Fake Store API</a>
                                 </li>
                             </ul>
                         </div>
