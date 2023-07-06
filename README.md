@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# React Playground
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Project purpose
+Get my hands on React & Redux.
 
 ## Available Scripts
 
@@ -17,7 +20,7 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+See the section about [running tests](https://create-react-app.dev/docs/running-tests/) for more information.
 
 ### `npm run build`
 
@@ -27,7 +30,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+See the section about [deployment](https://create-react-app.dev/docs/deployment/) for more information.
 
 ### `npm run eject`
 
@@ -39,8 +42,28 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `components` : contains UI components
+- `contexts` : contains React Context
+- `hooks` : contains React custom Hooks
+- `pages` : contains app pages
+- `redux` : all related stuff to Redux
+    - `actions`
+    - `epics`
+    - `reducers`
+    - `selectors`
+    - NOTE: Each folder has a subfolder named `features`. This folder is dedicated to feature components (e.g. Supposing we have a `Wizard.tsx` component, then we will have a `wizard.actions.ts`, `wizard.epics.ts`, `wizard.reducer.ts`, `wizard.selectors.ts` to manage the component state with the power of Redux).
+- `services` : data services
+- `utils` : utils functions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Resources
+
+- You can learn more in the [Create React App documentation](https://create-react-app.dev/docs/getting-started/).
+- To learn React, check out the [React documentation](https://react.dev/).
+- Learn [Redux](https://redux.js.org/)
+- Interesting article about Redux Action usage [here](https://phryneas.de/redux-typescript-no-discriminating-union)
+- The store page use this [fake API](https://fakestoreapi.com/docs)
+- This application combine the power of Redux and [RxJS](https://rxjs.dev/) to obtains a powerful reactive app. See [Redux-Observable](https://redux-observable.js.org/)
+- [Tailwindcss](https://tailwindcss.com/)
+- Free premade components with [Flowbite](https://flowbite.com/docs/getting-started/introduction/) using Tailwindcss
