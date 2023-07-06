@@ -1,3 +1,9 @@
+/**
+ * Reducer not used anymore.
+ * 
+ * React Reducer made for understanding only. Also check out `authContext.tsx`.
+ */
+
 export enum AuthActionType {
     LOGIN,
     LOGOUT,
@@ -9,6 +15,7 @@ export type AuthAction = LoginAction
     | LogoutAction;
 
 type AuthState = {
+    token?: string,
     user: User | undefined
 }
 

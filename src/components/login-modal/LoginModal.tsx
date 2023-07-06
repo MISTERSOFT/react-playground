@@ -1,14 +1,17 @@
 import { Dialog, Transition } from "@headlessui/react";
+import { FormEvent, Fragment, useState } from "react";
 import { Form, TextBox } from "../form/Form";
-import { CloseIcon } from "../icons/Icons"
+import { CloseIcon } from "../icons/Icons";
 import { Button } from "../ui/Button";
-import { Fragment, useContext, useState } from "react";
-import { AuthContext } from "../../contexts/authContext";
-import { AuthActionType } from "../../reducers/authReducer";
+// import { AuthContext } from "../../contexts/authContext";
+// import { AuthActionType } from "../../redux/reducers/authReducer";
+import { µAuthLoginRequest } from "../../redux/actions/auth.actions";
+import { useAppDispatch } from "../../redux/hooks";
 
 export function LoginModal() {
     const [isOpen, setIsOpen] = useState(false);
-    const { dispatch } = useContext(AuthContext);
+    const dispatch = useAppDispatch()
+    // const { dispatch } = useContext(AuthContext);
 
     function openModal() {
         setIsOpen(true);
@@ -18,20 +21,23 @@ export function LoginModal() {
         setIsOpen(false);
     }
 
-    function handleSubmit(e: any) {
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const { email, password } = e.target.elements
+        // const { username, password } = e.target.elements
+        const username = e.currentTarget.elements.namedItem('username') as HTMLInputElement
+        const password = e.currentTarget.elements.namedItem('password') as HTMLInputElement
 
         // Fake auth
-        if (email.value !== 'john@doe.com' && password.value !== 'azerty') {
-            // We can imagine a wrong response from server, we just return by now
-            return;
-        }
+        // if (email.value !== 'john@doe.com' && password.value !== 'azerty') {
+        //     // We can imagine a wrong response from server, we just return by now
+        //     return;
+        // }
 
-        dispatch({
-            type: AuthActionType.LOGIN,
-            payload: { email: email.value, firstname: 'John', lastname: 'Doe' }
-        });
+        // dispatch({
+        //     type: AuthActionType.LOGIN,
+        //     payload: { email: email.value, firstname: 'John', lastname: 'Doe' }
+        // });
+        dispatch(µAuthLoginRequest({ username: username.value, password: password.value }))
     }
 
     return (
@@ -74,14 +80,14 @@ export function LoginModal() {
                                             type="button"
                                             className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
                                             onClick={closeModal}>
-                                            <CloseIcon size={4} />
+                                            <CloseIcon size={4} className="text-white" />
                                             <span className="sr-only">Close modal</span>
                                         </button>
                                     </Dialog.Title>
 
                                     <Form className="mt-2 space-y-6" onSubmit={handleSubmit}>
-                                        <TextBox type="email" label="Your email" id="email" name="email" placeholder="john@doe.com" required={true} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" />
-                                        <TextBox type="password" label="Your password" id="password" name="password" placeholder="••••••••" required={true} />
+                                        <TextBox type="text" label="Your username" id="username" name="username" placeholder="johndoe" required={true} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" value="mor_2314" />
+                                        <TextBox type="password" label="Your password" id="password" name="password" placeholder="••••••••" required={true} value="83r5^_" />
                                         <Button type="submit" className="w-full">Login to your account</Button>
                                     </Form>
                                 </Dialog.Panel>

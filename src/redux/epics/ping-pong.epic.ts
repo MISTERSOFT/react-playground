@@ -1,6 +1,5 @@
 import { Action } from "@reduxjs/toolkit";
-import { StateObservable, ofType } from "redux-observable";
-import { RootState } from "../store";
+import { ofType } from "redux-observable";
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -16,3 +15,5 @@ export function pingEpic(action$: Observable<Action>): Observable<Action> {
         map(() => pong())
     )
 }
+
+export const PING_PONG_EPICS = [pingEpic]

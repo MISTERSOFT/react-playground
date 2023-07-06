@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { Button } from "../../components/ui/Button";
+import { Button } from "../ui/Button";
 import { decrement, increment, incrementByAmount, selectCount } from "./counterSlice";
 import { ping } from "../../redux/epics/ping-pong.epic";
 
